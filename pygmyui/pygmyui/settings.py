@@ -154,15 +154,15 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 ALLOWED_HOSTS = ['*']
 
 # Pygmy Settings
-PYGMY_API_ADDRESS = 'http://127.0.0.1:9119'
+PYGMY_API_ADDRESS = env.str("UI_API_ADDRESS", default='http://127.0.0.1:9119')
 
-PYGMY_API_AUTH = 'BasicAuth'
+PYGMY_API_AUTH = env.str("UI_API_AUTH_METHOD", default='BasicAuth')
 
-PYGMY_API_USER = 'admin'
+PYGMY_API_USER = env.str("UI_API_AUTH_USER", default='admin')
 
-PYGMY_API_PASSWORD = 'admin'
+PYGMY_API_PASSWORD = env.str("UI_API_AUTH_PASS", default='admin')
 
-HOSTNAME = '127.0.0.1:8000'
+HOSTNAME = env.str("UI_HOSTNAME", default='127.0.0.1:8000')
 
 # Load tests if PYGMYUI_TEST environment variable is set
 if os.environ.get('PYGMYUI_TEST') is not None:
