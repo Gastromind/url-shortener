@@ -8,6 +8,7 @@ ADD ./requirements.txt /pygmy/requirements.txt
 RUN pip3 install -r requirements.txt
 ADD . /pygmy
 
+WORKDIR /pygmy/pygmyui
 EXPOSE 8000
 
 CMD ["gunicorn", "-b 0.0.0.0:8000", "-w 1", "pygmyui.wsgi"]
