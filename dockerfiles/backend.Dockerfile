@@ -10,4 +10,4 @@ ADD . /pygmy
 
 EXPOSE 9119
 
-CMD ['gunicorn', '-b 0.0.0.0:9119', '-w 1', 'pygmy.rest.wsgi:app']
+CMD ["gunicorn", "-b 0.0.0.0:9119", "-w 1", "pygmy.rest.wsgi:app"]
