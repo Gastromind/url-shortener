@@ -8,7 +8,6 @@ ADD ./requirements.txt /pygmy/requirements.txt
 RUN pip3 install -r requirements.txt
 ADD . /pygmy
 
-WORKDIR /pygmy/pygmy
 EXPOSE 9119
 
 CMD ["gunicorn", "-b 0.0.0.0:9119", "-w 1", "pygmy.rest.wsgi:app"]
