@@ -9,7 +9,7 @@ class Configuration:
     def __init__(self):
         # default sqlite3
         # TODO: Take this from cfg files
-        self.default_config_path = '/app/config/pygmy.cfg'
+        self.default_config_path = 'pygmy/config/pygmy.cfg'
         self.cfg = None
         self.debug = False
         self.schema = None
