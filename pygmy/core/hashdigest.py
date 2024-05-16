@@ -33,11 +33,11 @@ class HashDigest:
 
     def decode(self, short_str):
         """
+        Decodes a base62 string back to an integer.
 
-        :param short_str:
-        :return:
+        :param short_str: str
+        :return: int
         """
-        # slow
         val_hash = []
         for shrt in short_str:
             val_hash.append(self.base.index(shrt))
@@ -49,13 +49,18 @@ class HashDigest:
 
     def shorten(self, i):
         """
-        :param i:
+        Encodes an integer into a base62 string and ensures it is at least 6 characters long.
+
+        :param i: int
         :return: str
         """
         self.short_str = ""
         encoded_list = self.encode(i)
         for val in encoded_list:
             self.short_str += self.base[val]
+        # Ensure the short code is at least 6 characters long
+        while len(self.short_str) < 6:
+            self.short_str = self.base[0] + self.short_str
         return self.short_str
 
     def unshorten(self, s):
@@ -69,3 +74,4 @@ if __name__ == '__main__':
     for i in range(1000):
         sh = hd.shorten(1099)
         hd.decode(sh)
+        print(f"Short code: {sh}")
